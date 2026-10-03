@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: conso-linky
+  datasource:
+    url: jdbc:postgresql://localhost:5432/conso
+    username: conso
+    password: conso
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug

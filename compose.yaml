@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: conso-postgres
+    environment:
+      POSTGRES_DB: conso
+      POSTGRES_USER: conso
+      POSTGRES_PASSWORD: conso
+    ports:
+      - "5432:5432"
+    volumes:
+      - conso-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U conso -d conso"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  conso-data:
